@@ -14,5 +14,11 @@ namespace GitHub_User_Activity_Viewer.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> DisplayUser(string userName)
+        {
+            ViewData["UserName"] = userName;
+            return View();
+        }
     }
 }

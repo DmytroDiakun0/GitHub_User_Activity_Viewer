@@ -1,7 +1,33 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Find GitHub User";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<div class="index-container text-center">
+    <h1>Find GitHub User</h1>
+    <form class="find-user-form" asp-action="DisplayUser" method="get" onsubmit="return validateForm()">
+        <input id="userName" name="userName" placeholder="Username" class="form-control-lg border-0" />
+        <button type="submit" class="btn-lg btn-success border-0">Find User</button>
+    </form>
+    <span id="error-message" class="text-danger"></span>
 </div>
+
+<script>
+    function validateForm() {
+        var userName = document.getElementById("userName").value;
+        var errorMessage = document.getElementById("error-message");
+
+        if (userName.trim() === "") {
+            errorMessage.textContent = "Username cannot be empty!";
+            return false;
+        }
+
+        var usernameRegex = /^[a-zA-Z0-9-]+$/;
+        if (!usernameRegex.test(userName)) {
+            errorMessage.textContent = "Invalid username! Only letters, numbers, and hyphens are allowed.";
+            return false;
+        }
+
+        errorMessage.textContent = "";
+        return true;
+    }
+</script>

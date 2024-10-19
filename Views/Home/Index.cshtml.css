@@ -1,0 +1,14 @@
+﻿.index-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 120px;
+    width: 500px;
+    margin-top: -60px;
+    margin-left: -250px;
+}
+
+.find-user-form button {
+    background: rgb(21,79,3);
+    background: linear-gradient(90deg, rgba(21,79,3,1) 0%, rgba(50,167,20,1) 100%);
+}
