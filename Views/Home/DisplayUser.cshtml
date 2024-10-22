@@ -1,7 +1,11 @@
 ﻿@{
     ViewData["Title"] = "User " + ViewData["UserName"];
+    Dictionary<string, string> userData = (Dictionary<string, string>)ViewData["UserData"];
 }
 
 <div class="text-center">
-    <h1>@ViewData["UserName"]</h1>
+    @foreach(var item in userData)
+    {
+        <p>@item.Key : @item.Value</p>
+    }
 </div>
