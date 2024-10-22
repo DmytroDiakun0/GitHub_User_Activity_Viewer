@@ -1,11 +1,30 @@
 ﻿@{
-    ViewData["Title"] = "User " + ViewData["UserName"];
     Dictionary<string, string> userData = (Dictionary<string, string>)ViewData["UserData"];
+    ViewData["Title"] = "User \"" + userData["login"] + "\"";
 }
 
 <div class="text-center">
-    @foreach(var item in userData)
-    {
-        <p>@item.Key : @item.Value</p>
-    }
+    <div class="card border-warning border-2 user-card">
+        <div class="d-flex align-items-center">
+            <div>
+                <img id="user-avatar" src="@userData["avatar_url"] alt="Avatar">
+            </div>
+            <div class="card-body text-dark">
+                <a href="@userData["html_url"]" target="_blank" class="link-success" style="font-size: 12px">GitHub Page</a>
+                <h5 class="card-title text-warning">@userData["login"]</h5>
+                <p class="card-text">@userData["bio"]</p>
+            </div>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item border-info">Name: @userData["name"]</li>
+            <li class="list-group-item border-info">Company: @userData["company"]</li>
+            <li class="list-group-item border-info">Location: @userData["location"]</li>
+            <li class="list-group-item border-info">Email: @userData["email"]</li>
+            <li class="list-group-item border-info">Number of repositories: @userData["public_repos"]</li>
+            <li class="list-group-item border-info">Number of followers: @userData["followers"]</li>
+            <li class="list-group-item border-info">Number of following: @userData["following"]</li>
+            <li class="list-group-item border-info">Created At: @userData["created_at"]</li>
+            <li class="list-group-item border-info">Updated At: @userData["updated_at"]</li>
+        </ul>
+    </div>
 </div>

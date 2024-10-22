@@ -1,1 +1,11 @@
-﻿
+﻿.user-card {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 600px;
+    margin-left: -300px;
+}
+
+.user-card #user-avatar {
+    width: 300px;
+}
